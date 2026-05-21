@@ -1,4 +1,4 @@
-const MessyModal = ({ title, description, buttonTitle, buttonTitleTwo }) => {
+const MessyModal = ({ title, description, buttonTitle, buttonTitleTwo,buttonTitleTwo }) => {
   return (
     <div className="border-2 border-black p-6 flex flex-col gap-4 w-1/3 rounded-md bg-amber-400">
       <h1>{title}</h1>
