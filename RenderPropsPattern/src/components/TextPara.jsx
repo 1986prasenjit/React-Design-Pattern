@@ -3,3 +3,6 @@ const TextParagraph = ({ text }) => {
 };
 
 export default TextParagraph;
+
+
+
