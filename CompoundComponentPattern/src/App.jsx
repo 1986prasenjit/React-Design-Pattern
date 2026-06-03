@@ -32,6 +32,11 @@ const App = () => {
           <Modal>
             <Modal.Header>
               <h1>Are you sure you want to delete this</h1>
+              <h1>Are you sure you want to delete this</h1>
+              <h1>Are you sure you want to delete this</h1>
+              <h1>Are you sure you want to delete this</h1>
+              <h1>Are you sure you want to delete this</h1>
+              <h1>Are you sure you want to delete this</h1>
             </Modal.Header>
             <Modal.Description>
               <Accordion />
