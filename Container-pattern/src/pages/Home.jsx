@@ -10,9 +10,7 @@ const Home = () => {
     async function callAPI() {
       try {
         const data = await fetch(URL);
-
         const response = await data.json();
-
         setProducts(response.products);
       } catch (error) {
         console.error(
