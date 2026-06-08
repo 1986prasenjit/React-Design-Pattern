@@ -7,6 +7,8 @@ const StopWatch = () => {
     miliseconds: 0,
    }) 
 
+   const timerRef = useRef(null);
+
    function startTimer() {
     if(timerRef.current !== null) return;
 
@@ -36,6 +38,9 @@ const StopWatch = () => {
     }, 10);
    }
 
+   setTimeout(()=> {},1000)
+
+
    function stopTimer() {
     if(timerRef.current === null) return;
     
@@ -49,8 +54,6 @@ const StopWatch = () => {
    }
 
    const includeZero = (value) => value < 10 ? `0${value}` : value;
-
-  const timerRef = useRef(null)
   return (
     <div>
          <h1 className="text-3xl font-bold text-center mt-10">{includeZero(time.hours)}:{includeZero(time.minutes)}:{includeZero(time.seconds)}:{includeZero(time.miliseconds)}</h1>
