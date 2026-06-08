@@ -1,67 +1,86 @@
-import { useRef, useState } from "react"
+import { useRef, useState } from "react";
 const StopWatch = () => {
-   const [time, setTime] = useState({
+  const [time, setTime] = useState({
     hours: 0,
     minutes: 0,
     seconds: 0,
     miliseconds: 0,
-   }) 
+  });
 
-   const timerRef = useRef(null);
+  const timerRef = useRef(null);
 
-   function startTimer() {
-    if(timerRef.current !== null) return;
+  function startTimer() {
+    if (timerRef.current !== null) return;
 
     timerRef.current = setInterval(() => {
-        setTime((prevTime) => {
-            let { hours, minutes, seconds, miliseconds } = prevTime;
+      setTime((prevTime) => {
+        let { hours, minutes, seconds, miliseconds } = prevTime;
 
-            miliseconds += 1;
+        miliseconds += 1;
 
-            if (miliseconds === 100) {
-                seconds += 1;
-                miliseconds = 0;
-            }
-            
-            if (seconds === 60) {
-                minutes += 1;
-                seconds = 0;
-            }
+        if (miliseconds === 100) {
+          seconds += 1;
+          miliseconds = 0;
+        }
 
-            if (minutes === 60) {
-                hours += 1;
-                minutes = 0;
-            }
+        if (seconds === 60) {
+          minutes += 1;
+          seconds = 0;
+        }
 
-            return { hours, minutes, seconds, miliseconds };
-        });
+        if (minutes === 60) {
+          hours += 1;
+          minutes = 0;
+        }
+
+        return { hours, minutes, seconds, miliseconds };
+      });
     }, 10);
-   }
+  }
 
-   setTimeout(()=> {},1000)
+  setTimeout(() => {}, 1000);
 
+  function stopTimer() {
+    if (timerRef.current === null) return;
 
-   function stopTimer() {
-    if(timerRef.current === null) return;
-    
     clearInterval(timerRef.current);
     timerRef.current = null;
-   }
+  }
 
-   function resetTimer() {
+  function resetTimer() {
     stopTimer();
     setTime({ hours: 0, minutes: 0, seconds: 0, miliseconds: 0 });
-   }
+  }
 
-   const includeZero = (value) => value < 10 ? `0${value}` : value;
+  const includeZero = (value) => (value < 10 ? `0${value}` : value);
   return (
     <div>
-         <h1 className="text-3xl font-bold text-center mt-10">{includeZero(time.hours)}:{includeZero(time.minutes)}:{includeZero(time.seconds)}:{includeZero(time.miliseconds)}</h1>
-         <button className="bg-green-500 text-white px-4 py-2 rounded mr-2" onClick={startTimer}>Start</button>
-         <button className="bg-red-500 text-white px-4 py-2 rounded mr-2" onClick={stopTimer}>Stop</button>
-         <button className="bg-gray-500 text-white px-4 py-2 rounded" onClick={resetTimer}>Reset</button>
+      <h1 className="text-3xl font-bold text-center mt-10">
+        {includeZero(time.hours)}:{includeZero(time.minutes)}:
+        {includeZero(time.seconds)}:{includeZero(time.miliseconds)}
+      </h1>
+      <div className="text-center">
+        <button
+          className="bg-green-500 text-white px-4 py-2 rounded mr-2"
+          onClick={startTimer}
+        >
+          Start
+        </button>
+        <button
+          className="bg-red-500 text-white px-4 py-2 rounded mr-2"
+          onClick={stopTimer}
+        >
+          Stop
+        </button>
+        <button
+          className="bg-gray-500 text-white px-4 py-2 rounded"
+          onClick={resetTimer}
+        >
+          Reset
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default StopWatch
+export default StopWatch;
