@@ -1,22 +1,15 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Products from "./pages/Products";
-import Layout from "./components/Layout";
+
 
 function App() {
+
+  //let name = "Arif";
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
-        </Route>
-      </Routes>
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-6xl font-bold text-center text-red-600">
+        Hello from Abhishek and Shyamal
+      </h1>
     </>
   );
 }
+
 export default App;

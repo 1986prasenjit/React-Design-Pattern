@@ -9,5 +9,9 @@ createRoot(document.getElementById("root")).render(
     <StrictMode>
       <App />
     </StrictMode>
+<<<<<<< HEAD
   </BrowserRouter>,
+=======
+  </BrowserRouter>
+>>>>>>> 4ad380e (Add new components and configuration for multiple patterns; implement Tailwind CSS integration)
 );
