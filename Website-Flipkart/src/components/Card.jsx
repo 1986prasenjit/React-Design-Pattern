@@ -1,7 +1,6 @@
-import { useState } from "react";
-import Modal from "./Modal.jsx";
 
-const ProductCard = ({
+
+const Card = ({
   title,
   description,
   price,
@@ -9,11 +8,6 @@ const ProductCard = ({
   category,
   thumbnail,
 }) => {
-  const [isToggle, setIsToggle] = useState(false);
-
-  function handleToggle() {
-    setIsToggle(true);
-  }
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
@@ -22,6 +16,7 @@ const ProductCard = ({
           src={thumbnail}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+          loading="lazy"
         />
 
         <span className="absolute top-4 left-4 bg-pink-500 text-white text-sm px-4 py-1 rounded-full font-semibold shadow-md">
@@ -64,16 +59,13 @@ const ProductCard = ({
         </div>
 
         <button
-          onClick={handleToggle}
           className="w-full py-3 bg-pink-500 text-white rounded-xl font-semibold text-lg hover:bg-pink-600 transition duration-300"
         >
           Add To Cart
         </button>
       </div>
-
-      {isToggle && <Modal onClose={() => setIsToggle(false)} />}
     </div>
   );
 };
 
-export default ProductCard;
+export default Card;
